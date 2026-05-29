@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ATMO tv V5</title>
+<title>Atmosphere Entertainment Link</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
@@ -233,6 +233,28 @@ function showHome(){
 document.getElementById("login").classList.add("hidden");
 document.getElementById("home").classList.remove("hidden");
 }
+</script>
+
+  <script>
+
+const JELLYFIN_SERVER = "http://atmotv.tail35dd2c.ts.net";
+
+const API_KEY = "455ee5e3e3c34f8abaa2f4dbc8a1d269";
+
+async function loadLibrary(){
+
+const response = await fetch(
+    `${JELLYFIN_SERVER}/Items?Recursive=true&IncludeItemTypes=Movie,Series&api_key=${API_KEY}`
+);
+
+const data = await response.json();
+
+console.log(data);
+
+}
+
+loadLibrary();
+
 </script>
 
 </body>
